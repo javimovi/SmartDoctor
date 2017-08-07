@@ -1,0 +1,31 @@
+<div id="userDataView" class="container">
+  <div>
+    <div class="row">
+        <div class="col-xs-5">
+          <label class="separatorBlue">Sexo del paciente:*</label>
+          <div style="display: flex">
+            <div>
+              <label class="btn btn-primary"><img src="http://localhost/SmartDoctor/img/woman.png">
+                <input type="checkbox" name="chk1" id="womanImgUser" class="hidden userSexData" autocomplete="off">
+              </label>
+            </div>
+            <div>
+              <label class="btn btn-primary"><img src="http://localhost/SmartDoctor/img/man.png">
+                <input type="checkbox" name="chk1" id="manImgUser" class="hidden userSexData" autocomplete="off">
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-2" style="padding-bottom: 25%;"></div>
+        <div class="col-xs-5">
+          <div>
+            <div class="separatorBlue">Edad:*</div>
+            <label type="text" id="amountUserDate" readonly style="border:0; color:#f6931f; font-weight:bold;"></label>
+            <div id="sliderDate"></div>
+          </div>
+        </div>
+    </div>
+    <div class="separatorGray"></div>
+    <button id="buttonUserCancelData" class="btn btn-primary">Atrás</button>
+    <button id="buttonUserData" class="btn btn-primary">Aceptar</button>
+  </div>
