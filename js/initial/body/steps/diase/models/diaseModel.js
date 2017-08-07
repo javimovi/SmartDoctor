@@ -41,7 +41,8 @@ define([
 
     defaults: {
       listPatientDiseases: [],
-      collection: []
+      collection: [],
+      radioOption: null
     }
 
   });

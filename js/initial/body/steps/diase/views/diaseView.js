@@ -10,7 +10,8 @@ define([
   var View = Mn.View.extend({
     template: _.template(Template),
     events: {
-      "click #buttonDiase:not(.disabled)": "acceptDiase"
+      "click #buttonDiase:not(.disabled)": "acceptDiase",
+      "change [type='radio']": "onChangeRadio"
     },
     initialize: function () {
       var that = this;
@@ -25,6 +26,9 @@ define([
         }
       });
     },
+    onChangeRadio: function (e) {
+      this.model.set("radioOption", e.currentTarget.id)
+    },
     acceptDiase: function () {
       this.trigger('acceptDiase', this.model)
     },
@@ -37,7 +41,7 @@ define([
 
         var innerDiv = '<div class="nameAccodion">' + diase.Text + '</div><span class="badge">' + diase.CurrentProbability + '%</span>';
 
-        
+
         var diasePanel = new DiasePanelView({
           description: diase.Description,
           comment: diase.Comment,
@@ -45,7 +49,7 @@ define([
         });
         diasePanel.render();
         that.model.get("collection").push(diasePanel);
-        
+
         that.$el.find('#viewDiase #listAccordion').append(div);
         that.$el.find('#viewDiase #listAccordion #' + diase.Value).append(innerDiv);
         that.$el.find('#viewDiase #listAccordion #diaseAccordion' + diase.Value).append(diasePanel.$el);
@@ -54,7 +58,7 @@ define([
       this.$el.find("#listAccordion").accordion({
         collapsible: true
       });
-      
+
     },
     onShow: function () {
       $('#gifWait').css('display', 'block');
