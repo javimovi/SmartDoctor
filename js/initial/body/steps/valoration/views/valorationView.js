@@ -11,6 +11,7 @@ define([
     initialize: function () {
       this.model = new Model();
     }
+    
   });
   return View;
 });
