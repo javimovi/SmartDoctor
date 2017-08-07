@@ -180,3 +180,7 @@
 #listAccordion .nameAccodion{
   float: left;
 }
+textarea {
+  resize: vertical; 
+  width: 100%;
+}

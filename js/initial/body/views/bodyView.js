@@ -21,7 +21,7 @@ define([
     initialize: function () {
       this.model = new Model();
       //this.indexView();
-      this.diseaseView();
+      this.valorationView();
     },
     acceptPersonalData: function (model) {
       if ( model.get("generoUser")) {

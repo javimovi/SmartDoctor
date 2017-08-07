@@ -10,7 +10,6 @@ define([
     template: _.template(Template),
     initialize: function () {
       this.model = new Model();
-    
     }    
   });
   return View;
