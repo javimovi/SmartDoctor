@@ -20,8 +20,8 @@ define([
     },
     initialize: function () {
       this.model = new Model();
-      //this.indexView();
-      this.valorationView();
+      this.indexView();
+      //this.valorationView();
     },
     acceptPersonalData: function (model) {
       if ( model.get("generoUser")) {

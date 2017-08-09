@@ -1,7 +1,11 @@
 @import url("../bower_components/lobibox/css/lobibox.css");
 #sidebar {
-  background: #eeeeee;
+  border-bottom: 0;
+  background: #fff;
   margin-top: -30px;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  width: 97.5%;
 }
 
 #initialView {
@@ -38,10 +42,13 @@
 
 #body {
   background: white;
-  padding-bottom: 5%;
+  /* padding-bottom: 5%; */
   /* margin-top: 2px; */
-  margin-left: 29px;
+  /* margin-left: 29px; */
   /* width: 100%; */
+  border-left: 1px solid #ddd;
+  border-right: 1px solid;
+  width: 97.5%;
   margin-bottom: 21px;
   margin-right: 29px;
 }
@@ -50,8 +57,10 @@
   background: #203a45;
   padding-top: 5px;
   padding-bottom: 25px;
-  margin-left: 15px;
+  width: 104%;
+  margin-left: -64px;
   margin-right: 15px;
+  width: 110%;
 }
 
 #header .jumbotron h1 {
@@ -213,15 +222,18 @@ textarea {
 .ui-slider-handle {
   background: #456dff !important;
 }
-#buttonGenerateCode{
+
+#buttonGenerateCode {
   float: left;
-    margin-right: 10%;
+  margin-right: 10%;
 }
-#spanGenerateCode{
+
+#spanGenerateCode {
   color: #ffaa6e;
   float: left;
   font-size: 32px;
 }
-#spanGenerateCodeClose{
-  cursor: pointer;  
+
+#spanGenerateCodeClose {
+  cursor: pointer;
 }
