@@ -10,7 +10,7 @@
 }
 
 #header {
-  color: white; 
+  color: white;
 }
 
 .separatorBlue {
@@ -171,16 +171,57 @@
   margin-top: 7%;
 }
 
-#listAccordion .badge{
+#listAccordion .badge {
   width: 4%;
   float: right;
   margin-right: 4%;
 }
 
-#listAccordion .nameAccodion{
+#listAccordion .nameAccodion {
   float: left;
 }
+
 textarea {
-  resize: vertical; 
+  resize: vertical;
   width: 100%;
+}
+
+#groupSliderValoration,
+#commentValoration {
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 1%;
+}
+
+#buttonGenerateCode {
+  margin-left: 5%;
+  margin-top: 1%;
+}
+
+#groupSliderValoration .ui-slider {
+  margin-bottom: 3%;
+}
+
+#sliderProbabilityUser .ui-slider-range {
+  background: #b4ffff;
+}
+
+#sliderProbability .ui-slider-range {
+  background: #a3e2a3;
+}
+
+.ui-slider-handle {
+  background: #456dff !important;
+}
+#buttonGenerateCode{
+  float: left;
+    margin-right: 10%;
+}
+#spanGenerateCode{
+  color: #ffaa6e;
+  float: left;
+  font-size: 32px;
+}
+#spanGenerateCodeClose{
+  cursor: pointer;  
 }

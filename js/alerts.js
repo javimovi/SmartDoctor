@@ -11,7 +11,7 @@ define([
         initialize: function () {
             Lobibox.notify.DEFAULTS.soundPath = '../bower_components/lobibox/sounds/';
             Lobibox.alert.DEFAULTS.iconClass = false;
-            _.bindAll(this, 'alert','alertProgress','alertConfirm','notify');
+            _.bindAll(this, 'alert','alertConfirm','notify');
         },
         /*alerts:
             msg: text of message.(mandatory)
@@ -26,32 +26,9 @@ define([
                         'class': 'btn btn-warning',
                         closeOnClick: true
                     }
-                },
-                beforeClose: _.bind(function (lbbox){
-                    this.pool = _.without(this.pool, _.find(this.pool, function(poolAlert){
-                        return poolAlert.$el === lbbox.$el;
-                    }));
-                    if (!utils.isNullUndefinedOrEmpty(lbbox.$options.onBeforeClose)) lbbox.$options.onBeforeClose();
-                }, this)
+                }
             },options));
             this.pool.push(alert);
-        },
-        alertProgress: function (msg,options) {
-            var alert = Lobibox.progress(_.extend({
-                title: 'Smart Doctor',
-                label: msg,
-                closeButton: false,
-                closeOnEsc: false,
-                baseClass: 'lobiboxCenter',
-                beforeClose: _.bind(function (lbbox){
-                    this.pool = _.without(this.pool, _.find(this.pool, function(poolAlert){
-                        return poolAlert.$el === lbbox.$el;
-                    }));
-                    if (!utils.isNullUndefinedOrEmpty(lbbox.$options.onBeforeClose)) lbbox.$options.onBeforeClose();
-                }, this)
-            }),options);
-            this.pool.push(alert);
-            return alert;
         },
         alertConfirm: function (msg,callbackSuccess, callbackError, options) {
             var alert = Lobibox.alert('info', _.extend({
@@ -90,8 +67,8 @@ define([
             var alert = Lobibox.notify(type, _.extend({
                 size: 'mini',
                 sound: false,
-                showClass: 'zoomInDown',
-                hideClass: 'zoomOutDown',
+                showClass: 'jumpUp',
+                hideClass: 'zoomOut',
                 position: 'center bottom',
                 delayIndicator: false,
                 msg: msg,
