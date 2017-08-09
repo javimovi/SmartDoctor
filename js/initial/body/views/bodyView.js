@@ -21,7 +21,7 @@ define([
     initialize: function () {
       this.model = new Model();
       //this.indexView();
-      this.diseaseView();
+      this.valorationView();
     },
     acceptPersonalData: function (model) {
       if ( model.get("generoUser")) {
@@ -40,11 +40,11 @@ define([
       }
     },
     acceptDiase: function (model) {
-      if ( model.get("listPatientDiseases").length > 0) {
-        this.model.set("diases", model.get("listPatientDiseases"));
+      if ( model.get("radioOption") ) {
+        this.model.set("diase", model.get("radioOption"));
         this.valorationView();
       } else {
-        this.alert("error", "No existen coincidencias para sus síntomas");
+        this.alert("error", "Debe de seleccionar el diagnóstico que crea mas certero");
       }
     },
     acceptValoration: function (model) {
@@ -71,7 +71,6 @@ define([
       this.listenTo(diseaseView, 'acceptDiase', _.bind(this.acceptDiase, this));
     },   
     valorationView: function () {
-      debugger;
       this.currentName = "valoration";
       var valorationView = new Valoration();
       this.showView(valorationView);

@@ -1,1 +1,42 @@
-<div>VALORATION</div>
+<div>
+  <label class="separatorBlue">Nos gustaría que tomase un segundo para rellenar un formulario acerca del diagnóstico y así poder ser más precisos en el futuro</label>
+
+  <div class="row">
+    <div class="col-xs-6">
+      <label class="separatorBlue">Valoración diagnostico ahora</label>
+      <div id="groupSliderValoration">
+        <label>Seguridad del paciente</label>
+        <label type="text" id="amountProbabilityUser" readonly style="border:0; color:#f6931f; font-weight:bold;"></label>
+        <div id="sliderProbabilityUser"></div>
+
+
+
+        <label>Valorar diagnostico</label>
+        <label type="text" id="amountProbability" readonly style="border:0; color:#f6931f; font-weight:bold;"></label>
+        <div id="sliderProbability"></div>
+
+      </div>
+      <div id="commentValoration">
+        <label>Comentario adicional</label>
+        <textarea id="textAreaValoration"></textarea>
+
+      </div>
+    </div>
+    <div class="col-xs-6" style="padding-bottom: 10%;">
+      <div>
+        <label class="separatorBlue">Valorar más tarde</label>
+        <button id="buttonGenerateCode" class="btn btn-primary">Generar código valoración</button>
+        <div id="divGenerateCode" style="display: none">
+          <span id="spanGenerateCode"></span>
+          <span title="Eliminar codigo" id="spanGenerateCodeClose">&#10006;</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="separatorGray"></div>
+
+  <button id="cancelValidation" class="btn btn-primary">Atrás</button>
+
+  <button id="acceptValidation" class="btn btn-primary">Guardar</button>
