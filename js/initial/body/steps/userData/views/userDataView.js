@@ -28,11 +28,12 @@ define([
         max: 120,
         value: 0,
         slide: function (event, ui) {
-          that.$el.find('#amountUserDate').text(ui.value);
+          that.$el.find('#amountUserDate').text(ui.value + (ui.value  == "1" ?' Año': ' Años'));
           that.model.set("date", ui.value);
         }
       });
-      this.$el.find("#amountUserDate").text(this.$el.find("#sliderDate").slider("value"));
+      var value = this.$el.find("#sliderDate").slider("value");
+      this.$el.find("#amountUserDate").text(value + ' Años');
     },
     onCLickUserSexData: function (e) {
       var user = $(e.target),

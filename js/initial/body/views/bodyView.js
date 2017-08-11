@@ -16,12 +16,12 @@ define([
     currentView: null,
     currentName: '',
     regions: {
-      "userDataView": "#userDataView"
+      "bodyView": "#bodyContainerView"
     },
     initialize: function () {
       this.model = new Model();
-      //this.indexView();
-      this.valorationView();
+      this.indexView();
+      //this.valorationView();
     },
     acceptPersonalData: function (model) {
       if ( model.get("generoUser")) {
@@ -83,7 +83,7 @@ define([
       this.render();
     },
     onRender: function () {
-      if (this.currentView) this.showChildView("userDataView", this.currentView);
+      if (this.currentView) this.showChildView("bodyView", this.currentView);
 
     },
     alert: function (type, text) {
