@@ -1,31 +1,32 @@
-<div id="userDataView" class="container">
+<div id="userDataView">
   <div>
-    <div class="row">
-        <div class="col-xs-5">
-          <label class="separatorBlue">Sexo del paciente:*</label>
-          <div style="display: flex">
-            <div>
-              <label class="btn btn-primary"><img src="http://localhost/SmartDoctor/img/woman.png">
+    <div class="row" style="    margin-bottom: 5%;">
+      <div class="col-xs-6">
+        <label class="separatorBlue">Sexo del paciente:*</label>
+        <div style="display: flex; margin-left: 15%;margin-top: 1%;">
+          <div style=" margin-right: 3%;">
+            <label class="btn btn-primary"><img style="width: 75%;"src="http://localhost/SmartDoctor/img/woman.png">
                 <input type="checkbox" name="chk1" id="womanImgUser" class="hidden userSexData" autocomplete="off">
               </label>
-            </div>
-            <div>
-              <label class="btn btn-primary"><img src="http://localhost/SmartDoctor/img/man.png">
+          </div>
+          <div>
+            <label class="btn btn-primary"><img  style="width: 75%;" src="http://localhost/SmartDoctor/img/man.png">
                 <input type="checkbox" name="chk1" id="manImgUser" class="hidden userSexData" autocomplete="off">
               </label>
-            </div>
           </div>
         </div>
-        <div class="col-xs-2" style="padding-bottom: 25%;"></div>
-        <div class="col-xs-5">
-          <div>
-            <div class="separatorBlue">Edad:*</div>
-            <label type="text" id="amountUserDate" readonly style="border:0; color:#f6931f; font-weight:bold;"></label>
-            <div id="sliderDate"></div>
-          </div>
+      </div>
+      <div class="col-xs-6">
+        <div>
+          <div class="separatorBlue">Edad:*</div>
+          <label type="text" id="amountUserDate" readonly style="border:0; color:#f6931f; font-weight:bold;margin-left: 11%;margin-top: 1%;
+    font-weight: bold;"></label>
+          <div id="sliderDate"></div>
         </div>
+      </div>
     </div>
     <div class="separatorGray"></div>
-    <button id="buttonUserCancelData" class="btn btn-primary">Atrás</button>
-    <button id="buttonUserData" class="btn btn-primary">Aceptar</button>
+    <div id="buttonUser">
+      <button id="buttonUserData" class="btn btn-primary">Siguiente paso</button>
+    </div>
   </div>
