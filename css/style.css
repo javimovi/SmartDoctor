@@ -1,6 +1,6 @@
 @import url("../bower_components/lobibox/css/lobibox.css");
 #sidebar {
-      border-radius: 0px 10px 0px 0px;
+  border-radius: 0px 10px 0px 0px;
   border-bottom: 0;
   margin-top: -40px;
   margin-bottom: -10px;
@@ -9,27 +9,37 @@
   width: 97.5%;
 }
 
-#sidebar, #tabs .active.open > a, #body  {
+#sidebar,
+#tabs .active.open>a,
+#body {
   background: #e8e8e8;
 }
+
+#descriptionDiase, #commentDiase{
+  margin: 1%;
+}
+
 #initialView {
   background: #56697d;
   overflow: hidden;
 }
-#tabs .active.open > a{
+
+#tabs .active.open>a {
   color: #337ab7;
   font-weight: bold;
 }
-#tabs .active:not(.open) > a{
+
+#tabs .active:not(.open)>a {
   cursor: pointer;
   color: #949191;
 }
+
 #header {
   color: white;
 }
 
 .separatorBlue {
-  width: 100%;
+  width: 98%;
   height: 24px;
   font-family: Arial;
   font-size: 12.0pt;
@@ -40,7 +50,9 @@
   padding-top: 3px;
   padding-left: 13px;
   clear: both;
-  margin-top: 10px;
+  margin-top: 16px;
+  margin-left: 1%;
+  /* margin-right: 0%; */
 }
 
 .separatorGray {
@@ -58,7 +70,7 @@
 
 #body {
   padding-bottom: 3%;
-      border-radius: 0px 0px 10px 10px;
+  border-radius: 0px 0px 10px 10px;
   /* margin-top: 2px; */
   /* margin-left: 29px; */
   /* width: 100%; */
@@ -70,41 +82,39 @@
 }
 
 #header .jumbotron {
-      border-radius: 0px 0px 0px 0px;
-  
-    background: #212a40;
-    padding-top: 1px;
-    /* margin-bottom: 10px; */
-    width: 104%;
-    margin-left: -23px;
-    /* margin-right: 56px; */
-    /* width: 110%; */
-    height: 109px;
-    /* margin-top: 5px; */
-}
+  border-radius: 0px 0px 0px 0px;
+  background: #212a40;
+  padding-top: 1px;
+  /* margin-bottom: 10px; */
+  width: 104%;
+  margin-left: -23px;
+  /* margin-right: 56px; */
+  /* width: 110%; */
+  height: 109px;
+  /* margin-top: 5px; */
 }
 
+
+}
 #header .jumbotron h1 {
-font-family: inherit;
-    font-weight: 300;
-    margin-left: 4px;
-    font-size: 43px;
+  font-family: inherit;
+  font-weight: 300;
+  margin-left: 4px;
+  font-size: 43px;
 }
-
 #header .jumbotron p {
   margin-left: 26px;
 }
-
 #sidebar h1 {
   margin-left: 15px;
   margin-bottom: 20px;
 }
-
 #sidebar @media (min-width: 768px) {
   .brand-pills>li>a {
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
   }
+  
   li.brand-nav.active a:after {
     content: " ";
     display: block;
@@ -120,27 +130,40 @@ font-family: inherit;
     z-index: 2;
   }
 }
-
 #userDataView .check {
   opacity: 0.5;
   color: #996;
 }
-
 #userDataView .selectedUserSex {
   background: #d44e4e;
 }
-
-#buttonUser {
+.buttonUser {
   float: right;
   margin-top: 1%;
+  margin-bottom: 1%;
+}
+#listInsane {
+  width: 92%;
+  margin: 0 auto;
+}
+#sliderDate {
+  width: 80%;
+  margin: 0 auto;
+}
+.textFilterSintom {
+  margin-bottom: 1%;
+  margin-top: 2%;
+  margin-left: 78%;
+  display: inline-flex;
+}
+#textFilterSintom {
+  padding-left: 2%;
+}
+#listSintom .listSintomParent:hover {
+  background: #c4c4c4;
 }
 
-#sliderDate{
-      width: 80%;
-    margin: 0 auto;
-}
 /* WAIT GIF */
-
 .loadersmall {
   border: 5px solid #f3f3f3;
   -webkit-animation: spin 1s linear infinite;
@@ -151,113 +174,98 @@ font-family: inherit;
   height: 50px;
   margin-left: 46%;
 }
-
 @-webkit-keyframes spin {
   0% {
     -webkit-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
     transform: rotate(0deg);
   }
+  
   100% {
     -webkit-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
     transform: rotate(360deg);
   }
 }
-
 @keyframes spin {
   0% {
     -webkit-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
     transform: rotate(0deg);
   }
+  
   100% {
     -webkit-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
     transform: rotate(360deg);
   }
 }
-
 #gifWait {
   display: none;
   position: absolute;
   margin-top: 76px;
 }
 
-
 /* table sintomas */
-
 .listSintomParent {
   cursor: pointer;
 }
-
 #listSintom .selectedItemList {
-  background: rgba(0, 255, 202, 0.15)
+  background: #d8dfe5
 }
-
 #listSintom {
   height: 326px;
   overflow-y: scroll;
 }
-
 #insaneDataView .col-xs-4 label {
   margin-top: 7%;
 }
-
 #listAccordion .badge {
   width: 4%;
   float: right;
   margin-right: 4%;
 }
-
 #listAccordion .nameAccodion {
   float: left;
 }
-
-textarea {
+#listAccordion {
+  padding-top: 2%;
+  height: 400px;
+  overflow-y: overlay;
+  margin-top: 1%;
+}
+#commentValoration textarea {
   resize: vertical;
   width: 100%;
+  margin-bottom: 1%;
 }
-
 #groupSliderValoration,
 #commentValoration {
   width: 90%;
   margin-left: 5%;
   margin-top: 1%;
 }
-
 #buttonGenerateCode {
   margin-left: 5%;
   margin-top: 1%;
 }
-
 #groupSliderValoration .ui-slider {
-  margin-bottom: 3%;
+  margin-bottom: 6%;
 }
-
-#sliderProbabilityUser .ui-slider-range {
-  background: #b4ffff;
-}
-
-#sliderProbability .ui-slider-range {
+#sliderProbabilityUser .ui-slider-range, #sliderProbability .ui-slider-range,
+#sliderDate .ui-slider-range{
   background: #a3e2a3;
 }
-
 .ui-slider-handle {
-  background: #456dff !important;
+  background: #94abff !important;
 }
-
 #buttonGenerateCode {
-  float: left;
   margin-right: 10%;
 }
-
 #spanGenerateCode {
-  color: #ffaa6e;
-  float: left;
-  font-size: 32px;
+  color: #f97878;
+  font-size: 19px;
 }
-
 #spanGenerateCodeClose {
   cursor: pointer;
 }

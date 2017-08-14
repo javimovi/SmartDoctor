@@ -36,16 +36,18 @@ define([
       var that = this;
 
 
-      _.each(this.model.get("listPatientDiseases"), function (diase) {
-        var div = '<h3 id="' + diase.Value + '"></h3><div id="diaseAccordion' + diase.Value + '"></div>';
+      _.each(this.model.get("listPatientDiseases"), function (diase, iteratee) {
+        var div = '<h3 id="' + diase.Value + '" style="margin-top: 6px !important;height: 37px;    width: 95%;margin: 0 auto;"></h3><div style=" border: none;" id="diaseAccordion' + diase.Value + '"></div>';
 
         var innerDiv = '<div class="nameAccodion">' + diase.Text + '</div><span class="badge">' + diase.CurrentProbability + '%</span>';
 
+        if(iteratee == 0) that.model.set("radioOption", diase.Value);
 
         var diasePanel = new DiasePanelView({
           description: diase.Description,
           comment: diase.Comment,
-          id: diase.Value
+          id: diase.Value,
+          chooseSystem: iteratee == 0
         });
         diasePanel.render();
         that.model.get("collection").push(diasePanel);

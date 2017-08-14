@@ -1,18 +1,16 @@
 <div>
-  <label class="separatorBlue">Nos gustaría que tomase un segundo para rellenar un formulario acerca del diagnóstico y así poder ser más precisos en el futuro</label>
-
   <div class="row">
     <div class="col-xs-6">
-      <label class="separatorBlue">Valoración diagnostico ahora</label>
+      <label class="separatorBlue">Ya sé lo que he tenido &rarr; Valorar ahora</label>
       <div id="groupSliderValoration">
-        <label>Seguridad del paciente</label>
+        <label>Seguridad del paciente, respecto a lo que tuvo: </label>
         <label type="text" id="amountProbabilityUser" readonly style="border:0; color:#f6931f; font-weight:bold;"></label>
         <div id="sliderProbabilityUser"></div>
 
 
 
-        <label>Valorar diagnostico</label>
-        <label type="text" id="amountProbability" readonly style="border:0; color:#f6931f; font-weight:bold;"></label>
+        <label>Valorar diagnostico: </label>
+        <label type="text" id="amountProbability" readonly style="border:0; color:#f6931f; font-weight:bold;"></label> <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
         <div id="sliderProbability"></div>
 
       </div>
@@ -24,9 +22,10 @@
     </div>
     <div class="col-xs-6" style="padding-bottom: 10%;">
       <div>
-        <label class="separatorBlue">Valorar más tarde</label>
-        <button id="buttonGenerateCode" class="btn btn-primary">Generar código valoración</button>
+        <label class="separatorBlue">Aun no sé lo que he tenido &rarr; Valorar más tarde</label>
+        <button id="buttonGenerateCode" class="btn btn-primary">Generar código futura valoración</button>
         <div id="divGenerateCode" style="display: none">
+          <span style="    margin-left: 10%;">Guarde el código &rarr; </span>
           <span id="spanGenerateCode"></span>
           <span title="Eliminar codigo" id="spanGenerateCodeClose">&#10006;</span>
         </div>
@@ -34,9 +33,9 @@
     </div>
   </div>
 
-
   <div class="separatorGray"></div>
 
-  <button id="cancelValidation" class="btn btn-primary">Atrás</button>
-
-  <button id="acceptValidation" class="btn btn-primary">Guardar</button>
+  <div class="buttonUser">
+    <button id="cancelValidation" class="btn btn-default">Atrás</button>
+    <button id="acceptValidation" class="btn btn-primary">Finalizar</button>
+  </div>
