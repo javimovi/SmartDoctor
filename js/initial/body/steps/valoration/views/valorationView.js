@@ -33,6 +33,7 @@ define([
     },
     onClickSave: function (e) {
       this.model.set("comment", this.$el.find('#textAreaValoration').val());
+      this.trigger('acceptValoration', this.model);
     },
     onClickGenerateCode: function (e) {
       var that = this;
