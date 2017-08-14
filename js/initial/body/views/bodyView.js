@@ -6,10 +6,11 @@ define([
     "../steps/userData/views/userDataView",
     "../steps/insane/views/insaneDataView",
     "../steps/diase/views/diaseView",
-    "../steps/valoration/views/valorationView"
+    "../steps/valoration/views/valorationView",
+    "../../../alerts"
 
 
-  ], function (Backbone, Mn, Model, Template, UserDataView, Insane, Diase, Valoration) {
+  ], function (Backbone, Mn, Model, Template, UserDataView, Insane, Diase, Valoration, Alerts) {
 
   var View = Mn.View.extend({
     template: _.template(Template),
@@ -18,12 +19,27 @@ define([
     regions: {
       "bodyView": "#bodyContainerView"
     },
+    events:{
+      "click .btn.btn-default": "onClickLater"
+    },
     initialize: function () {
       this.model = new Model();
       this.indexView();
+      this.alerts = new Alerts();
+    },
+    onClickLater: function () {
+      if ( this.currentName == "insane" ){
+        this.indexView();
+      }
+      else if ( this.currentName == "disease" ){
+        this.insaneView();
+      }
+      else if ( this.currentName == "valoration" ){
+        this.diseaseView();
+      }
     },
     acceptPersonalData: function (model) {
-      if ( model.get("generoUser")) {
+      if (model.get("generoUser")) {
         this.model.set("personalData", model.attributes);
         this.insaneView();
       } else {
@@ -31,7 +47,7 @@ define([
       }
     },
     acceptInsane: function (model) {
-      if ( model.get("listSelectedInsane").length > 1) {
+      if (model.get("listSelectedInsane").length > 1) {
         this.model.set("insane", model.get("listSelectedInsane"));
         this.diseaseView();
       } else {
@@ -39,7 +55,7 @@ define([
       }
     },
     acceptDiase: function (model) {
-      if ( model.get("radioOption") ) {
+      if (model.get("radioOption")) {
         this.model.set("diase", model.get("radioOption"));
         this.valorationView();
       } else {
@@ -47,7 +63,8 @@ define([
       }
     },
     acceptValoration: function (model) {
-
+      this.alerts.notify("El proceso ha finalizado. Gracias por usar la aplicación");
+      this.indexView();
     },
     indexView: function () {
       this.currentName = "index";
@@ -68,13 +85,13 @@ define([
       this.showView(diseaseView);
       diseaseView.onShow();
       this.listenTo(diseaseView, 'acceptDiase', _.bind(this.acceptDiase, this));
-    },   
+    },
     valorationView: function () {
       this.currentName = "valoration";
       var valorationView = new Valoration();
       this.showView(valorationView);
       this.listenTo(valorationView, 'acceptValoration', _.bind(this.acceptValoration, this));
-    },  
+    },
     showView: function (view) {
       if (this.currentView) this.currentView.remove();
       this.currentView = view;
