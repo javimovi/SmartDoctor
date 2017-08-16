@@ -19,7 +19,7 @@ define([
     regions: {
       "bodyView": "#bodyContainerView"
     },
-    events:{
+    events: {
       "click .btn.btn-default": "onClickLater"
     },
     initialize: function () {
@@ -28,13 +28,11 @@ define([
       this.alerts = new Alerts();
     },
     onClickLater: function () {
-      if ( this.currentName == "insane" ){
+      if (this.currentName == "insane") {
         this.indexView();
-      }
-      else if ( this.currentName == "disease" ){
+      } else if (this.currentName == "disease") {
         this.insaneView();
-      }
-      else if ( this.currentName == "valoration" ){
+      } else if (this.currentName == "valoration") {
         this.diseaseView();
       }
     },
@@ -67,12 +65,14 @@ define([
       this.indexView();
     },
     indexView: function () {
+      this.renderSideBar(1);
       this.currentName = "index";
       var userDataView = new UserDataView();
       this.showView(userDataView);
       this.listenTo(userDataView, 'acceptPersonalData', _.bind(this.acceptPersonalData, this));
     },
     insaneView: function () {
+      this.renderSideBar(2);
       this.currentName = "insane";
       var insaneView = new Insane();
       this.showView(insaneView);
@@ -80,6 +80,7 @@ define([
       this.listenTo(insaneView, 'acceptInsane', _.bind(this.acceptInsane, this));
     },
     diseaseView: function () {
+      this.renderSideBar(3);
       this.currentName = "disease";
       var diseaseView = new Diase();
       this.showView(diseaseView);
@@ -87,6 +88,7 @@ define([
       this.listenTo(diseaseView, 'acceptDiase', _.bind(this.acceptDiase, this));
     },
     valorationView: function () {
+      this.renderSideBar(4);
       this.currentName = "valoration";
       var valorationView = new Valoration();
       this.showView(valorationView);
@@ -101,6 +103,38 @@ define([
     onRender: function () {
       if (this.currentView) this.showChildView("bodyView", this.currentView);
 
+    },
+    addClassSlider: function (div, active, complete) {
+      if(complete) {
+        $('#' + div).addClass('complete');
+      }
+      else{
+        $('#' + div).removeClass('complete');
+      }
+      if(active){
+        $('#' + div).addClass('active');
+      }
+      else{
+        $('#' + div).removeClass('active');
+      }
+      if(!complete && !active){
+        $('#' + div).addClass('disabled');
+      }
+      else{
+        $('#' + div).removeClass('disabled');
+      }
+    },
+    renderSideBar(phase) {
+      var that = this;
+
+      setTimeout(function () {
+
+        that.addClassSlider('progressPart1', phase==1, phase>1);
+        that.addClassSlider('progressPart2', phase==2, phase>2);
+        that.addClassSlider('progressPart3', phase==3, phase>3);
+        that.addClassSlider('progressPart4', phase==4, false);
+
+      }, 20);
     },
     alert: function (type, text) {
       Lobibox.alert(type, //AVAILABLE TYPES: "error", "info", "success", "warning"
