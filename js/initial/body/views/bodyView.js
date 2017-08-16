@@ -104,28 +104,36 @@ define([
       if (this.currentView) this.showChildView("bodyView", this.currentView);
 
     },
-    generateColor: function (div) {
-      $('#'+div + ' .bs-wizard-dot').css('background', '#ffd97f');
-      $('#'+div + ' .progress-bar').css('background', '#ffd97f');
+    addClassSlider: function (div, active, complete) {
+      if(complete) {
+        $('#' + div).addClass('complete');
+      }
+      else{
+        $('#' + div).removeClass('complete');
+      }
+      if(active){
+        $('#' + div).addClass('active');
+      }
+      else{
+        $('#' + div).removeClass('active');
+      }
+      if(!complete && !active){
+        $('#' + div).addClass('disabled');
+      }
+      else{
+        $('#' + div).removeClass('disabled');
+      }
     },
     renderSideBar(phase) {
       var that = this;
-      
+
       setTimeout(function () {
-        $('.bs-wizard-dot').css('background', '#f5f5f5');
-        $('.progress-bar').css('background', '#f5f5f5');
-        if (phase >= 1) {
-          that.generateColor('progressPart1');
-          if (phase >= 2) {
-            that.generateColor('progressPart2');
-            if (phase >= 3) {
-              that.generateColor('progressPart3');
-              if (phase == 4) {
-                that.generateColor('progressPart4');
-              }
-            }
-          }
-        }
+
+        that.addClassSlider('progressPart1', phase==1, phase>1);
+        that.addClassSlider('progressPart2', phase==2, phase>2);
+        that.addClassSlider('progressPart3', phase==3, phase>3);
+        that.addClassSlider('progressPart4', phase==4, false);
+
       }, 20);
     },
     alert: function (type, text) {
