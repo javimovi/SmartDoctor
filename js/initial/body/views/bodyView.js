@@ -7,10 +7,11 @@ define([
     "../steps/insane/views/insaneDataView",
     "../steps/diase/views/diaseView",
     "../steps/valoration/views/valorationView",
+    "../otherTabs/valorationCode/views/valorationCodeView",
     "../../../alerts"
 
 
-  ], function (Backbone, Mn, Model, Template, UserDataView, Insane, Diase, Valoration, Alerts) {
+  ], function (Backbone, Mn, Model, Template, UserDataView, Insane, Diase, Valoration, ValorationCode, Alerts) {
 
   var View = Mn.View.extend({
     template: _.template(Template),
@@ -64,6 +65,10 @@ define([
       this.alerts.notify("El proceso ha finalizado. Gracias por usar la aplicación");
       this.indexView();
     },
+    acceptValorationCode: function (model) {
+      this.alerts.notify("Gracias por valorar el diagnóstico");
+      this.trigger('acceptValorationCodeTrigger');
+    },
     indexView: function () {
       this.renderSideBar(1);
       this.currentName = "index";
@@ -94,6 +99,11 @@ define([
       this.showView(valorationView);
       this.listenTo(valorationView, 'acceptValoration', _.bind(this.acceptValoration, this));
     },
+    valorationCodeView: function () {
+      var valorationCodeView = new ValorationCode();
+      this.showView(valorationCodeView);
+      this.listenTo(valorationCodeView, 'acceptValorationCode', _.bind(this.acceptValorationCode, this));
+    },
     showView: function (view) {
       if (this.currentView) this.currentView.remove();
       this.currentView = view;
@@ -105,22 +115,19 @@ define([
 
     },
     addClassSlider: function (div, active, complete) {
-      if(complete) {
+      if (complete) {
         $('#' + div).addClass('complete');
-      }
-      else{
+      } else {
         $('#' + div).removeClass('complete');
       }
-      if(active){
+      if (active) {
         $('#' + div).addClass('active');
-      }
-      else{
+      } else {
         $('#' + div).removeClass('active');
       }
-      if(!complete && !active){
+      if (!complete && !active) {
         $('#' + div).addClass('disabled');
-      }
-      else{
+      } else {
         $('#' + div).removeClass('disabled');
       }
     },
@@ -129,12 +136,21 @@ define([
 
       setTimeout(function () {
 
-        that.addClassSlider('progressPart1', phase==1, phase>1);
-        that.addClassSlider('progressPart2', phase==2, phase>2);
-        that.addClassSlider('progressPart3', phase==3, phase>3);
-        that.addClassSlider('progressPart4', phase==4, false);
+        that.addClassSlider('progressPart1', phase == 1, phase > 1);
+        that.addClassSlider('progressPart2', phase == 2, phase > 2);
+        that.addClassSlider('progressPart3', phase == 3, phase > 3);
+        that.addClassSlider('progressPart4', phase == 4, false);
 
       }, 20);
+    },
+    onShow: function () {
+      $('#gifWait').css('display', 'block');
+    },
+    showValorationCode: function () {
+      this.valorationCodeView();
+    },
+    showInitialDiase: function () {
+      this.indexView();
     },
     alert: function (type, text) {
       Lobibox.alert(type, //AVAILABLE TYPES: "error", "info", "success", "warning"

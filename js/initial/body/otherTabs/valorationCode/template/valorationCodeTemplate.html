@@ -1,0 +1,34 @@
+<div>
+  <div class="row">
+    <div class="col-xs-8">
+      <label class="separatorBlue">Valorar ahora con código</label>
+      <div id="groupSliderValoration">
+
+        <label>Código diagnostico: </label><br>
+        <input type="text" placeholder="Introduzca el código" />
+        <button id="btnCheckCode" class="btn btn-primary">Comprobar código</button><br><br>
+
+        <label>Valorar diagnostico: </label>
+        <label type="text" id="amountProbability" readonly style="border:0; color:#f6931f; font-weight:bold;"></label> <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+        <div id="sliderProbability"></div>
+
+        <label>Estoy seguro al </label>
+        <label type="text" id="amountProbabilityUser" readonly style="border:0; color:#f6931f; font-weight:bold;"></label>
+        <div id="sliderProbabilityUser"></div>
+
+      </div>
+      <div id="commentValoration">
+        <label>Comentario adicional</label>
+        <textarea id="textAreaValoration"></textarea>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="separatorGray"></div>
+
+<div class="buttonUser">
+  <button id="acceptValidationCode" class="btn btn-primary disabled">Guardar</button>
+</div>
