@@ -61,6 +61,9 @@ define([
         collapsible: true
       });
 
+    },
+    onShow: function () {
+      $('#gifWait').css('display','block');
     }
   });
   return View;

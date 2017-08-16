@@ -204,6 +204,8 @@
   display: none;
   position: absolute;
   margin-top: 76px;
+  background: #3f5baa;
+  margin-left: 42%;
 }
 
 /* table sintomas */
@@ -268,4 +270,7 @@
 }
 #spanGenerateCodeClose {
   cursor: pointer;
+}
+#initialView{
+  padding-bottom: 5%;
 }
